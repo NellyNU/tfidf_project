@@ -2,10 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>TF-IDF Анализ</title>
+    <title>
+        TF-IDF Анализ
+    </title>
 </head>
 <body>
-    <h1>Загрузка текстового файла</h1>
+    <h1>
+        Загрузка текстового файла
+    </h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="file" accept=".txt" required>
@@ -13,7 +17,9 @@
     </form>
 
     {% if table %}
-    <h2>Результат анализа</h2>
+    <h2>
+        Результат анализа
+    </h2>
     <table border="1" cellpadding="5" cellspacing="0">
         <thead>
             <tr>
