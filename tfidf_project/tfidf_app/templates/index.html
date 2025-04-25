@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>TF-IDF Анализ</title>
+</head>
+<body>
+    <h1>Загрузка текстового файла</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file" accept=".txt" required>
+        <button type="submit">Загрузить</button>
+    </form>
+
+    {% if table %}
+    <h2>Результат анализа</h2>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Слово</th>
+                <th>TF (вхождения)</th>
+                <th>IDF (обратная частота)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table %}
+            <tr>
+                <td>{{ row.word }}</td>
+                <td>{{ row.tf }}</td>
+                <td>{{ row.idf|floatformat:5 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>
